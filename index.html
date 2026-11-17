@@ -1,426 +1,127 @@
 <!doctype html>
-<html lang="es" class="scroll-smooth">
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="{{ProductName}} – Plataforma SaaS para {{one-line value prop}}. Automatiza, mide y escala tu negocio con IA." />
-  <title>{{ProductName}} – {{short promise}}</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://cdn.jsdelivr.net/npm/@fontsource/inter/variable-full.css" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { theme: { extend: {
-      fontFamily: { sans: ['InterVariable','Inter','system-ui','-apple-system','Segoe UI', 'Roboto', 'sans-serif'] },
-      colors: {
-        brand: { DEFAULT:'#635BFF', dark:'#4F46E5', light:'#EEF2FF' }
-      }
-    }}}
-  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="小红书美妆爆款标题1000套，覆盖底妆、眼妆、唇妆、护肤与美妆工具。">
+  <title>小红书美妆爆款标题1000套</title>
   <style>
-    /* subtle grid background */
-    .bg-grid {
-      background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
-      background-size: 20px 20px;
-    }
+    :root { color-scheme: light; --ink: #371b42; --muted: #624b6d; --pink: #ad226d; --line: #e8cce9; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+    body { margin: 0; color: var(--ink); background: #fff7fd; font: 1rem/1.65 "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; }
+    a { color: inherit; }
+    a:focus-visible, summary:focus-visible { outline: 3px solid #7627a0; outline-offset: 5px; }
+    .wrap { width: min(70rem, calc(100% - 2rem)); margin-inline: auto; }
+    header { position: sticky; top: 0; z-index: 1; background: #fff7fd; border-bottom: 1px solid var(--line); }
+    .nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .65rem 1.5rem; padding-block: .9rem; }
+    .nav a { text-decoration: none; }
+    .nav nav { display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; }
+    .brand { font-weight: 800; }
+    .hero, .purchase { background: linear-gradient(125deg, #ffd6eb, #e5d3ff); text-align: center; }
+    .hero { padding: clamp(4rem, 10vw, 8rem) 0; }
+    h1, h2, h3, p { margin: 0; }
+    h1 { font-size: clamp(2.15rem, 6vw, 4.5rem); line-height: 1.2; text-wrap: balance; }
+    h2 { font-size: clamp(1.65rem, 4vw, 2.5rem); line-height: 1.3; margin-bottom: 1.5rem; }
+    h3 { font-size: 1.15rem; margin-bottom: .5rem; }
+    p { color: var(--muted); }
+    .subtitle { margin-top: 1rem; font-size: clamp(1.05rem, 2.6vw, 1.4rem); }
+    .button { display: inline-block; margin-top: 1.5rem; padding: .75rem 1.5rem; border-radius: 999px; background: var(--pink); color: white; font-weight: 700; text-decoration: none; }
+    .button:hover { background: #891653; }
+    .section { padding-block: clamp(2.75rem, 7vw, 5rem); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 1rem; }
+    .card, details { padding: 1.25rem 1.5rem; border: 1px solid var(--line); border-radius: 1.25rem; background: #fff; }
+    .steps { margin: 0; padding-inline-start: 1.5rem; }
+    .steps li + li { margin-top: .6rem; }
+    .purchase { border-radius: 1.75rem; padding: clamp(2.5rem, 7vw, 4.5rem) 1rem; }
+    .purchase h2 { margin-bottom: .75rem; }
+    .offer { font-size: clamp(1.15rem, 4vw, 1.6rem); font-weight: 750; color: var(--ink); }
+    details + details { margin-top: .75rem; }
+    details p { margin-top: .65rem; }
+    summary { cursor: pointer; font-weight: 700; }
+    footer { border-top: 1px solid var(--line); text-align: center; padding: 2.5rem 0; }
+    footer h2 { margin: 0; }
+    footer p { margin-top: .6rem; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
 </head>
-<body class="bg-neutral-950 text-neutral-100 antialiased">
-
-  <!-- ========================= NAVBAR (sticky) ========================= -->
-  <header class="fixed inset-x-0 top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/60 border-b border-white/10">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="#hero" class="flex items-center gap-2">
-        <img src="{{/logo.svg}}" alt="{{ProductName}}" class="h-7 w-auto">
-        <span class="sr-only">{{ProductName}}</span>
-      </a>
-      <nav aria-label="Primary" class="hidden md:flex items-center gap-8 text-sm">
-        <a href="#features" class="hover:text-white/80">Funciones</a>
-        <a href="#how" class="hover:text-white/80">Cómo funciona</a>
-        <a href="#pricing" class="hover:text-white/80">Precios</a>
-        <a href="#testimonials" class="hover:text-white/80">Opiniones</a>
-        <a href="#faq" class="hover:text-white/80">FAQ</a>
-      </nav>
-      <div class="hidden md:flex items-center gap-3">
-        <a href="{{loginUrl}}" class="text-sm text-white/80 hover:text-white">Iniciar sesión</a>
-        <a href="#cta" class="inline-flex items-center rounded-md bg-brand px-4 py-2 text-sm font-medium text-white shadow hover:bg-brand-dark focus:outline-none focus:ring-2 focus:ring-brand/50">Probar gratis</a>
-      </div>
-      <!-- Mobile -->
-      <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg hover:bg-white/10" aria-label="Abrir menú">
-        <svg class="h-6 w-6" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-    <div id="mobileNav" class="md:hidden hidden border-t border-white/10 bg-neutral-950/95">
-      <nav class="px-4 py-4 space-y-3">
-        <a href="#features" class="block">Funciones</a>
-        <a href="#how" class="block">Cómo funciona</a>
-        <a href="#pricing" class="block">Precios</a>
-        <a href="#testimonials" class="block">Opiniones</a>
-        <a href="#faq" class="block">FAQ</a>
-        <a href="#cta" class="inline-flex w-full justify-center rounded-md bg-brand px-4 py-2 text-sm font-medium">Empieza gratis</a>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a href="#hero" class="brand">美妆标题手册</a>
+      <nav aria-label="主导航">
+        <a href="#features">产品优势</a>
+        <a href="#how">使用方法</a>
+        <a href="#pricing">购买方式</a>
+        <a href="#faq">常见问题</a>
       </nav>
     </div>
   </header>
 
-  <!-- ========================= HERO ========================= -->
-  <section id="hero" class="relative isolate pt-28 pb-20 bg-gradient-to-b from-neutral-950 via-neutral-900 to-neutral-950 overflow-hidden">
-    <div class="bg-grid absolute inset-0 pointer-events-none"></div>
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <!-- Social proof -->
-      <div class="mb-6 text-sm text-neutral-300">
-        <span class="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1 ring-1 ring-white/10">
-          <svg class="h-4 w-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 0 1 .083 1.32l-7 9a1 1 0 0 1-1.514.111l-4-4a1 1 0 1 1 1.414-1.414l3.147 3.146 6.294-8.09a1 1 0 0 1 1.576-.073z"/></svg>
-          Con la confianza de <strong class="font-semibold">+{{1200}}</strong> equipos
-        </span>
+  <main>
+    <section id="hero" class="hero">
+      <div class="wrap">
+        <h1>小红书美妆爆款标题1000套</h1>
+        <p class="subtitle">新手博主直接抄，5大品类全覆盖，打开就能用</p>
+        <a class="button" href="#pricing">查看购买方式</a>
       </div>
+    </section>
 
-      <div class="grid lg:grid-cols-2 gap-10 items-center">
-        <div>
-          <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight">
-            {{ProductName}}: {{clear, outcome-driven headline}}  
-          </h1>
-          <p class="mt-5 text-lg text-neutral-300 max-w-xl">
-            {{One or two sentences describing the core problem}}.  
-            Con {{ProductName}}, {{primary benefit}} para {{ICP/role}} en minutos, no semanas.
-          </p>
-          <div class="mt-7 flex flex-col sm:flex-row gap-3">
-            <a href="#cta" class="inline-flex items-center justify-center rounded-md bg-brand px-6 py-3 text-base font-semibold text-white shadow hover:bg-brand-dark focus-visible:outline focus-visible:ring-2 focus-visible:ring-brand/50">Comenzar gratis</a>
-            <a href="{{demoUrl}}" class="inline-flex items-center justify-center rounded-md bg-white/10 px-6 py-3 text-base font-semibold text-white hover:bg-white/15">Ver demo</a>
-          </div>
-          <!-- Secondary proof bullets -->
-          <ul class="mt-6 space-y-2 text-sm text-neutral-300">
-            <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-emerald-400"></span> Reducción media de {{xx %}} en tiempo de proceso</li>
-            <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-emerald-400"></span> Cumplimiento {{SOC2/ISO27001/GDPR}} incluido</li>
-          </ul>
-        </div>
-        <!-- Product shot / video -->
-        <div class="relative">
-          <div class="aspect-[16/10] rounded-xl border border-white/10 bg-neutral-900/60 shadow-inner overflow-hidden">
-            <img src="{{/screenshot-hero.png}}" alt="Vista del producto {{ProductName}}" class="h-full w-full object-cover">
-          </div>
-          <p class="sr-only">Captura del panel principal del producto</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================= PARTNERS / LOGOS ========================= -->
-  <section aria-label="Empresas que confían" class="py-10 border-t border-white/10">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <p class="text-center text-sm text-neutral-400 mb-6">Con la confianza de equipos en:</p>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 opacity-80">
-        <!-- Replace with monochrome SVG logos -->
-        <img src="{{/logo1.svg}}" alt="Partner 1" class="h-9 mx-auto">
-        <img src="{{/logo2.svg}}" alt="Partner 2" class="h-9 mx-auto">
-        <img src="{{/logo3.svg}}" alt="Partner 3" class="h-9 mx-auto">
-        <img src="{{/logo4.svg}}" alt="Partner 4" class="h-9 mx-auto">
-        <img src="{{/logo5.svg}}" alt="Partner 5" class="h-9 mx-auto">
-        <img src="{{/logo6.svg}}" alt="Partner 6" class="h-9 mx-auto">
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================= BENEFITS (focus on outcomes) ========================= -->
-  <section id="features" class="py-20">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Beneficios que notarás en semanas</h2>
-      <p class="mt-3 text-neutral-300 max-w-3xl">Habla de **cómo mejora la vida del usuario**, no solo de características.</p>
-
-      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- bento-like cards -->
-        <article class="group rounded-2xl border border-white/10 bg-neutral-900/60 p-6 hover:border-brand/50">
-          <div class="flex items-center gap-3">
-            <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-brand/15 text-brand">
-              <!-- icon -->
-              <svg class="h-6 w-6" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 12h16M4 6h16M4 18h16"/></svg>
-            </span>
-            <h3 class="text-lg font-semibold">Automatiza lo repetitivo</h3>
-          </div>
-          <p class="mt-3 text-sm text-neutral-300">Ahorra horas a tu equipo con flujos listos y conectores nativos.</p>
+    <section id="features" class="wrap section">
+      <h2>产品优势</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>5大美妆品类</h3>
+          <p>覆盖底妆、眼妆、唇妆、护肤和美妆工具，按笔记主题挑选标题。</p>
         </article>
-
-        <article class="group rounded-2xl border border-white/10 bg-neutral-900/60 p-6 hover:border-brand/50">
-          <div class="flex items-center gap-3">
-            <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-brand/15 text-brand">
-              <svg class="h-6 w-6" fill="none" stroke="currentColor"><path stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            </span>
-            <h3 class="text-lg font-semibold">Decisiones con datos</h3>
-          </div>
-          <p class="mt-3 text-sm text-neutral-300">Paneles en tiempo real para medir ROI y detectar cuellos de botella.</p>
+        <article class="card">
+          <h3>常见笔记题材都能套用</h3>
+          <p>想写新品试色、空瓶分享、妆容教程或好物测评，都可以从对应的标题句式入手。</p>
         </article>
-
-        <article class="group rounded-2xl border border-white/10 bg-neutral-900/60 p-6 hover:border-brand/50">
-          <div class="flex items-center gap-3">
-            <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-brand/15 text-brand">
-              <svg class="h-6 w-6" fill="none" stroke="currentColor"><path stroke-width="2" d="M12 6v6l4 2"/></svg>
-            </span>
-            <h3 class="text-lg font-semibold">Onboarding en 1 día</h3>
-          </div>
-          <p class="mt-3 text-sm text-neutral-300">Plantillas, guías in-app y soporte humano para ir a producción rápido.</p>
-        </article>
-
-        <article class="group rounded-2xl border border-white/10 bg-neutral-900/60 p-6 hover:border-brand/50">
-          <div class="flex items-center gap-3">
-            <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-brand/15 text-brand">
-              <svg class="h-6 w-6" fill="none" stroke="currentColor"><path stroke-width="2" d="M12 3v18m9-9H3"/></svg>
-            </span>
-            <h3 class="text-lg font-semibold">Escala sin dolores</h3>
-          </div>
-          <p class="mt-3 text-sm text-neutral-300">Arquitectura multi-tenant, SSO y límites elásticos por equipo.</p>
-        </article>
-
-        <article class="group rounded-2xl border border-white/10 bg-neutral-900/60 p-6 hover:border-brand/50">
-          <div class="flex items-center gap-3">
-            <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-brand/15 text-brand">
-              <svg class="h-6 w-6" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 4h16v12H4zM2 18h20"/></svg>
-            </span>
-            <h3 class="text-lg font-semibold">Integraciones sin código</h3>
-          </div>
-          <p class="mt-3 text-sm text-neutral-300">Conecta {{top 6 tools}} en minutos; API abierta para casos avanzados.</p>
-        </article>
-
-        <article class="group rounded-2xl border border-white/10 bg-neutral-900/60 p-6 hover:border-brand/50">
-          <div class="flex items-center gap-3">
-            <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-brand/15 text-brand">
-              <svg class="h-6 w-6" fill="none" stroke="currentColor"><path stroke-width="2" d="M12 8l6 4-6 4-6-4 6-4z"/></svg>
-            </span>
-            <h3 class="text-lg font-semibold">Seguridad y cumplimiento</h3>
-          </div>
-          <p class="mt-3 text-sm text-neutral-300">Cifrado E2E, roles granulares y registros de auditoría descargables.</p>
+        <article class="card">
+          <h3>替换关键词就能用</h3>
+          <p>选好句式后，填入产品名、肤质或使用场景，再补上自己的真实体验。</p>
         </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ========================= HOW IT WORKS (3 steps) ========================= -->
-  <section id="how" class="py-20 border-t border-white/10">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <h2 class="text-3xl font-bold sm:text-4xl">¿Cómo empezar en 3 pasos?</h2>
-      <div class="mt-10 grid gap-6 md:grid-cols-3">
-        <div class="rounded-2xl border border-white/10 bg-neutral-900/60 p-6">
-          <span class="text-brand font-bold">01</span>
-          <h3 class="mt-2 font-semibold">Crea tu espacio</h3>
-          <p class="mt-2 text-neutral-300">Regístrate, invita al equipo y conecta tus herramientas.</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-neutral-900/60 p-6">
-          <span class="text-brand font-bold">02</span>
-          <h3 class="mt-2 font-semibold">Activa una plantilla</h3>
-          <p class="mt-2 text-neutral-300">Elige un flujo preconfigurado y ajústalo a tu negocio.</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-neutral-900/60 p-6">
-          <span class="text-brand font-bold">03</span>
-          <h3 class="mt-2 font-semibold">Mide y escala</h3>
-          <p class="mt-2 text-neutral-300">Lanza, monitoriza KPIs y automatiza más casos con IA.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <section id="how" class="wrap section">
+      <h2>三步写出你的标题</h2>
+      <ol class="steps">
+        <li>确定笔记品类和主题，例如油皮夏季底妆。</li>
+        <li>选一个符合笔记内容的标题句式。</li>
+        <li>填入真实体验，例如「油皮通勤底妆｜带妆8小时后的实测」。</li>
+      </ol>
+    </section>
 
-  <!-- ========================= PRICING ========================= -->
-  <section id="pricing" class="py-20">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <div class="md:flex items-end justify-between">
-        <div>
-          <h2 class="text-3xl font-bold sm:text-4xl">Precios simples, sin sorpresas</h2>
-          <p class="mt-2 text-neutral-300">Elige el plan que se adapta a tu etapa. Cancela cuando quieras.</p>
-        </div>
-        <!-- Toggle monthly/annual (optional) -->
-        <div class="mt-6 md:mt-0 flex items-center gap-3">
-          <span class="text-sm text-neutral-300">Mensual</span>
-          <button id="toggleBilling" class="relative inline-flex h-6 w-11 items-center rounded-full bg-white/20" aria-pressed="false" aria-label="Cambiar a anual">
-            <span class="inline-block h-5 w-5 transform rounded-full bg-white transition"></span>
-          </button>
-          <span class="text-sm text-neutral-300">Anual <span class="text-emerald-400 text-xs font-semibold">Ahorra 20 %</span></span>
-        </div>
-      </div>
+    <section id="pricing" class="wrap purchase">
+      <h2>购买美妆标题手册</h2>
+      <p class="offer">29.9元 一次性购买，永久使用</p>
+      <a class="button" href="#cta">查看领取方式</a>
+    </section>
 
-      <div class="mt-10 grid gap-6 md:grid-cols-3">
-        <!-- Starter -->
-        <div class="rounded-2xl border border-white/10 bg-neutral-900/60 p-6">
-          <h3 class="text-lg font-semibold">Starter</h3>
-          <p class="mt-2 text-neutral-300">Para proyectos y equipos pequeños.</p>
-          <p class="mt-5 text-4xl font-extrabold"><span class="price" data-m="19" data-y="15">19</span><span class="text-lg font-medium"> €/mes</span></p>
-          <ul class="mt-5 space-y-2 text-sm text-neutral-300">
-            <li>Hasta 3 usuarios</li>
-            <li>5 flujos activos</li>
-            <li>Soporte por email</li>
-          </ul>
-          <a href="#cta" class="mt-6 block text-center rounded-md bg-white/10 px 4 py-3 font-semibold hover:bg-white/15">Empieza ahora</a>
-        </div>
-        <!-- Pro (highlight) -->
-        <div class="rounded-2xl border-2 border-brand bg-gradient-to-b from-brand/10 to-transparent p-6 relative">
-          <span class="absolute -top-3 right-6 rounded-full bg-brand px-2 py-1 text-xs font-semibold">Más popular</span>
-          <h3 class="text-lg font-semibold">Pro</h3>
-          <p class="mt-2 text-neutral-300">Para equipos que necesitan escalar.</p>
-          <p class="mt-5 text-4xl font-extrabold"><span class="price" data-m="49" data-y="39">49</span><span class="text-lg font-medium"> €/mes</span></p>
-          <ul class="mt-5 space-y-2 text-sm text-neutral-300">
-            <li>Usuarios ilimitados</li>
-            <li>IA avanzada y API</li>
-            <li>Soporte en 24 h</li>
-          </ul>
-          <a href="#cta" class="mt-6 block text-center rounded-md bg-brand px-4 py-3 font-semibold hover:bg-brand-dark">Probar Pro</a>
-        </div>
-        <!-- Advanced -->
-        <div class="rounded-2xl border border-white/10 bg-neutral-900/60 p-6">
-          <h3 class="text-lg font-semibold">Enterprise</h3>
-          <p class="mt-2 text-neutral-300">SLA, SSO, gobierno y éxito dedicado.</p>
-          <p class="mt-5 text-4xl font-extrabold">A medida</p>
-          <ul class="mt-5 space-y-2 text-sm text-neutral-300">
-            <li>SSO/SAML, SCIM</li>
-            <li>Soporte 24/7</li>
-            <li>Canal técnico dedicado</li>
-          </ul>
-          <a href="{{contactUrl}}" class="mt-6 block text-center rounded-md bg-white/10 px-4 py-3 font-semibold hover:bg-white/15">Habla con ventas</a>
-        </div>
-      </div>
-    </div>
-  </section>
+    <section id="faq" class="wrap section">
+      <h2>常见问题</h2>
+      <details>
+        <summary>刚开始做小红书美妆账号，可以用吗？</summary>
+        <p>可以。先按笔记主题选一套标题，再用你实际试过的产品和拍摄内容替换示例。</p>
+      </details>
+      <details>
+        <summary>手册覆盖哪些美妆品类？</summary>
+        <p>包含底妆、眼妆、唇妆、护肤和美妆工具，可用于测评、试色、教程和好物分享。</p>
+      </details>
+      <details>
+        <summary>买一次可以重复使用吗？</summary>
+        <p>可以。29.9元一次性购买，永久使用。同一个句式也可以根据不同产品和场景改写。</p>
+      </details>
+    </section>
+  </main>
 
-  <!-- ========================= TESTIMONIALS ========================= -->
-  <section id="testimonials" class="py-20 border-t border-white/10">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <h2 class="text-3xl font-bold sm:text-4xl">Lo que dicen nuestros clientes</h2>
-      <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <figure class="rounded-2xl border border-white/10 bg-neutral-900/60 p-6">
-          <blockquote class="text-neutral-200">“{{ProductName}} redujo nuestro tiempo de entrega en un 37 % en el primer trimestre.”</blockquote>
-          <figcaption class="mt-4 flex items-center gap-3">
-            <img src="{{/avatar1.jpg}}" alt="" class="h-10 w-10 rounded-full object-cover">
-            <div>
-              <p class="font-semibold">María G.</p>
-              <p class="text-sm text-neutral-400">COO · {{Company}}</p>
-            </div>
-          </figcaption>
-        </figure>
-        <figure class="rounded-2xl border border-white/10 bg-neutral-900/60 p-6">
-          <blockquote class="text-neutral-200">“El *failover* y la seguridad nos permitieron dormir tranquilos durante el pico navideño.”</blockquote>
-          <figcaption class="mt-4 flex items-center gap-3">
-            <img src="{{/avatar2.jpg}}" alt="" class="h-10 w-10 rounded-full object-cover">
-            <div>
-              <p class="font-semibold">Luis R.</p>
-              <p class="text-sm text-neutral-400">CTO · {{Company}}</p>
-            </div>
-          </figcaption>
-        </figure>
-        <figure class="rounded-2xl border border-white/10 bg-neutral-900/60 p-6">
-          <blockquote class="text-neutral-200">“La implementación en 48 h y el soporte en español marcaron la diferencia.”</blockquote>
-          <figcaption class="mt-4 flex items-center gap-3">
-            <img src="{{/avatar3.jpg}}" alt="" class="h-10 w-10 rounded-full object-cover">
-            <div>
-              <p class="font-semibold">Sara P.</p>
-              <p class="text-sm text-neutral-400">Head of Data · {{Company}}</p>
-            </div>
-          </figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================= FAQ ========================= -->
-  <section id="faq" class="py-20">
-    <div class="mx-auto max-w-3xl px-6">
-      <h2 class="text-3xl font-bold sm:text-4xl text-center">Preguntas frecuentes</h2>
-      <div class="mt-10 divide-y divide-white/10">
-        <!-- Repeatable FAQ item -->
-        <details class="group py-6">
-          <summary class="flex cursor-pointer list-none items-start justify-between text-left text-lg font-semibold">
-            ¿Puedo cancelar en cualquier momento?
-            <span class="ml-4 transition group-open:rotate-45">
-              <svg class="h-5 w-5" fill="none" stroke="currentColor"><path stroke-width="2" d="M12 4v16M4 12h16"/></svg>
-            </span>
-          </summary>
-          <p class="mt-3 text-neutral-300">Sí. No hay permanencias. Puedes cancelar o cambiar de plan desde la cuenta.</p>
-        </details>
-
-        <details class="group py-6">
-          <summary class="flex cursor-pointer list-none items-start justify-between text-left text-lg font-semibold">
-            ¿Cómo gestionan la seguridad de los datos?
-            <span class="ml-4 transition group-open:rotate-45"><svg class="h-5 w-5" fill="none" stroke="currentColor"><path stroke-width="2" d="M12 4v16M4 12h16"/></svg></span>
-          </summary>
-          <p class="mt-3 text-neutral-300">Capa de cifrado AES-256, tránsito TLS 1.3, roles RBAC, SSO/SCIM y auditoría. Cumplimos {{marcos}}.</p>
-        </details>
-
-        <details class="group py-6">
-          <summary class="flex cursor-pointer list-none items-start justify-between text-left text-lg font-semibold">
-            ¿Ofrecen soporte para Proveedores/Agencias (MSP/Partner)?
-            <span class="ml-4 transition group-open:rotate-45"><svg class="h5 w5" fill="none" stroke="currentColor"><path stroke-width="2" d="M12 4v16M4 12h16"/></svg></span>
-          </summary>
-          <p class="mt-3 text-neutral-300">Sí. Contamos con consola MSP, facturación multi-tenant y acceso seguro sin aperturas de puertos.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================= CTA BANNER ========================= -->
-  <section id="cta" class="py-16">
-    <div class="mx-auto max-w-6xl px-6">
-      <div class="relative isolate overflow-hidden rounded-3xl bg-gradient-to-r from-brand to-brand-dark p-10">
-        <div class="max-w-2xl">
-          <h2 class="text-3xl font-bold">Empieza hoy con {{ProductName}}</h2>
-          <p class="mt-2 text-brand-light/90">Prueba gratuita de {{14}} días · No requiere tarjeta · Soporte en español</p>
-          <div class="mt-6 flex flex-col sm:flex-row gap-3">
-            <a href="{{signupUrl}}" class="inline-flex items-center justify-center rounded-md bg-white px-6 py-3 text-brand font-semibold">Crear cuenta</a>
-            <a href="{{demoUrl}}" class="inline-flex items-center justify-center rounded-md bg-white/20 px-6 py-3 text-white backdrop-blur hover:bg-white/25">Reservar demo</a>
-          </div>
-        </div>
-        <img src="{{/cta-illustration.svg}}" alt="" class="absolute -right-8 bottom-0 w-72 opacity-20 pointer-events-none">
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================= FOOTER ========================= -->
-  <footer class="border-t border-white/10 py-12">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 text-sm">
-      <div>
-        <img src="{{/logo.svg}}" alt="{{ProductName}}" class="h-7 mb-4">
-        <p class="text-neutral-400">© {{new Date().getFullYear()}} {{Company}}. Todos los derechos reservados.</p>
-      </div>
-      <div>
-        <h3 class="font-semibold mb-3">Producto</h3>
-        <ul class="space-y-2 text-neutral-300">
-          <li><a href="#features" class="hover:text-white">Funciones</a></li>
-          <li><a href="#pricing" class="hover:text-white">Precios</a></li>
-          <li><a href="{{changelogUrl}}" class="hover:text-white">Changelog</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="font-semibold mb-3">Recursos</h3>
-        <ul class="space-y-2 text-neutral-300">
-          <li><a href="{{docsUrl}}" class="hover:text-white">Documentación</a></li>
-          <li><a href="{{blogUrl}}" class="hover:text-white">Blog</a></li>
-          <li><a href="{{statusUrl}}" class="hover:text-white">Estado</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="font-semibold mb-3">Legal</h3>
-        <ul class="space-y-2 text-neutral-300">
-          <li><a href="{{privacyUrl}}" class="hover:text-white">Privacidad</a></li>
-          <li><a href="{{termsUrl}}" class="hover:text-white">Términos</a></li>
-          <li><a href="{{dpaUrl}}" class="hover:text-white">DPA</a></li>
-        </ul>
-      </div>
+  <footer id="cta">
+    <div class="wrap">
+      <h2>扫码微信领取，立即上手</h2>
+      <p>领取二维码待添加。</p>
     </div>
   </footer>
-
-  <!-- ========================= Scripts: mobile nav + pricing toggle ========================= -->
-  <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileNav = document.getElementById('mobileNav');
-    menuBtn?.addEventListener('click', () => {
-      mobileNav.classList.toggle('hidden');
-      const expanded = menuBtn.getAttribute('aria-expanded') === 'true' || false;
-      menuBtn.setAttribute('aria-expanded', !expanded);
-    });
-
-    const toggle = document.getElementById('toggleBilling');
-    const prices = document.querySelectorAll('.price');
-    let annual = false;
-    toggle?.addEventListener('click', () => {
-      annual = !annual;
-      toggle.setAttribute('aria-pressed', String(annual));
-      toggle.querySelector('span').classList.toggle('translate-x-5');
-      prices.forEach(p => {
-        p.textContent = annual ? p.dataset.y : p.dataset.m;
-      });
-    });
-  </script>
 </body>
 </html>
